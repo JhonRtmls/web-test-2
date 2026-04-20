@@ -1,0 +1,143 @@
+/* ================================================
+   GESTOO — Global Base Styles
+   ================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+
+body {
+  background-color: var(--bg);
+  color: var(--text); /* #1A2A38 - Dark blue */
+  font-family: var(--font);
+  font-weight: var(--fw-regular);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+  color: var(--accent); /* Brand Blue #245C81 */
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.manifesto-text {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.tag {
+  color: var(--accent);
+  background: var(--surface-2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  font-family: var(--font);
+  font-weight: var(--fw-bold);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: all var(--t-base) var(--ease);
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.2);
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+  /* Si el logo original es blanco, lo invertimos para que sea oscuro */
+  filter: brightness(0); 
+  transition: opacity var(--t-fast) var(--ease);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: var(--accent-mid);
+  box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.3);
+}
+
+/* Background Illustrations */
+.bg-illustration {
+  position: fixed;
+  top: 50%;
+  display: none !important;
+}
+
+.bg-pinguino {
+  top: 60%; /* Mover el pingüino un poco más abajo */
+}
+
+/* ---- GSAP Split Text Helpers ---- */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.25em; /* Space between words */
+}
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ---- Custom Cursor Styling ---- */
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-2); /* Naranja vibrante */
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--blue-700); /* Azul de marca */
+}
+
+/* Ocultamos el cursor real por completo en toda la web */
+* {
+  cursor: none !important;
+}
+
+/* Permitir cursor por defecto solo en móviles para no romper la UX */
+@media (max-width: 768px) {
+  * { cursor: auto !important; }
+  .cursor-dot, .cursor-outline { display: none; }
+}
