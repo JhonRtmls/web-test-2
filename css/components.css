@@ -359,9 +359,10 @@
 
 /* Variación estática y compacta para el Navbar */
 .btn-pill-orange.btn-nav {
-  padding: 0.2rem 1.2rem; 
-  font-size: 0.7rem;
-  box-shadow: none; 
+  padding: 0.6rem 2rem; 
+  font-size: 0.85rem;
+  box-shadow: none;
+  font-weight: 600; 
 }
 
 .btn-pill-orange.btn-nav:hover {
