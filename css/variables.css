@@ -1,89 +1,83 @@
 /* ================================================
-   GESTOO — Design Tokens (WHITE THEME)
+    GESTOO — Design System v.4
    ================================================ */
 
 :root {
-  /* ── Nueva Escala de Azules Patagónicos ── */
-  --blue-50:   #F4F9FD;
-  --blue-100:  #E6F0F8;
-  --blue-200:  #C8E0EF;
-  --blue-300:  #97C6E1;
-  --blue-400:  #5FA9D2;
-  --blue-500:  #3C8EBC;
-  --blue-600:  #2A73A0;
-  --blue-700:  #245C81;
-  --blue-800:  #20425A;
-  --blue-900:  #152A3C;
+    /* ── Escala de Azules Patagónicos (Refinada para contraste) ── */
+    --blue-50:  #F0F7FF; /* Casi blanco azulado */
+    --blue-100: #DEEDF9;
+    --blue-200: #B9D9EB;
+    --blue-300: #89BDD9;
+    --blue-400: #5A9BC0;
+    --blue-500: #3E7FA3;
+    --blue-600: #2F6586;
+    --blue-700: #25506B;
+    --blue-800: #1C3A4F;
+    --blue-900: #152A3C; /* EXCLUSIVO FONDO PRINCIPAL */
 
-  /* ── Fondo y superficies ── */
-  --bg:        #FFFFFF;
-  --surface:   var(--blue-50);
-  --surface-rgb: 244, 249, 253;
-  --surface-2: var(--blue-100);
+    /* ── Semántica de Capas (Depth) ── */
+    --bg: var(--blue-900);
+    --surface: var(--blue-800);    /* Bloques sobre el fondo */
+    --surface-2: var(--blue-700);  /* Destacados o hovers de superficie */
+    --surface-light: var(--blue-50); /* Secciones claras (Manifiesto, etc) */
 
-  /* ── Acentos principales ── */
-  --accent:       var(--blue-800);   /* Principal (Texto e Iconos) */
-  --accent-mid:   var(--blue-600);   /* Medallones y Hovers */
-  --accent-light: var(--blue-400);   /* Acentos ligeros */
-  --accent-pale:  var(--blue-200);   /* Fondos sutiles */
-  
-  --accent-2:     #E8890A;           /* Naranja — Contraste para botones */
-  --accent-2-light: #F5A535;         /* Naranja claro */
-  --accent-red:   #FF4D4D;           /* Mantener para acciones críticas */
+    /* ── Acentos Principales (Escala Azul) ── */
+    --accent: var(--blue-400);       /* Destacados sobre oscuro */
+    --accent-mid: var(--blue-500);
+    --accent-dark: var(--blue-700);
 
-  /* ── Blanco y Negro ── */
-  --white:     #FFFFFF;
-  --off-white: var(--blue-50);
-  --black:     var(--blue-900);      /* El negro ahora es el azul más profundo */
+    /* ── Acentos de Contraste (INTACTOS) ── */
+    --accent-2: #E8890A;       /* Naranja */
+    --accent-2-light: #F5A535;
+    --accent-red: #FF4D4D;     /* Crítico */
 
-  /* ── Texto ── */
-  --text:      var(--blue-900);      /* Títulos y cuerpo principal */
-  --text-2:    var(--blue-800);      /* Cuerpo secundario */
-  --muted:     var(--blue-300);      /* Texto apagado */
+    /* ── Tipografía y Legibilidad ── */
+    --text: var(--blue-50);         /* Texto principal sobre oscuro */
+    --text-2: var(--blue-200);      /* Texto secundario / Descriptivo */
+    --text-dark: var(--blue-900);   /* Texto para usar sobre secciones claras */
+    --muted: var(--blue-400);       /* Texto deshabilitado o decorativo */
 
-  /* ── Bordes ── */
-  --border:        rgba(36, 92, 129, 0.1);
-  --border-accent: rgba(36, 92, 129, 0.3);
-  --border-light:  rgba(0, 0, 0, 0.05);
+    /* ── Bordes y Líneas ── */
+    --border: rgba(185, 217, 235, 0.1); 
+    --border-accent: rgba(185, 217, 235, 0.3);
 
-  /* ── RGB para rgba() ── */
-  --accent-rgb:   36, 92, 129;
-  --accent-2-rgb: 232, 137, 10;
+    /* ── Utilidades Visuales ── */
+    --glow: rgba(90, 155, 192, 0.2);
+    --white: #FFFFFF;
+    --black: #0A151E; /* Un tono más abajo que el 900 para sombras reales */
 
-  /* ── Glow / Sombras suaves ── */
-  --glow:   rgba(36, 92, 129, 0.1);
-  --shadow-card:   0 10px 40px rgba(0, 71, 255, 0.05);
-  --shadow-float:  0 20px 60px rgba(0, 0, 0, 0.08);
+    /* ── Tipografía — Montserrat Variable ── */
+    --font: 'Montserrat', sans-serif;
+    --fw-thin: 100;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    --fw-black: 900;
 
-  /* ── Tipografía — Montserrat Variable ── */
-  --font:         'Montserrat', sans-serif;
-  --fw-thin:      100;
-  --fw-light:     300;
-  --fw-regular:   400;
-  --fw-medium:    500;
-  --fw-semibold:  600;
-  --fw-bold:      700;
-  --fw-extrabold: 800;
-  --fw-black:     900;
+    /* ── Layout ── */
+    --container-width: 1200px;
+    --container-pad: 2rem;
 
-  /* ── Layout ── */
-  --container-width: 1200px;
-  --container-pad:   2rem;
+    /* ── Radius ── */
+    --radius-sm: 8px;
+    --radius: 16px;
+    --radius-lg: 32px;
+    --radius-xl: 48px;
+    --radius-pill: 100px;
 
-  /* ── Radius ── */
-  --radius-sm:  8px;
-  --radius:     16px;
-  --radius-lg:  32px;
-  --radius-xl:  48px;
-  --radius-pill: 100px;
+    /* ── Transiciones ── */
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --t-fast: 0.2s;
+    --t-base: 0.35s;
+    --t-slow: 0.65s;
 
-  /* ── Transiciones ── */
-  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --t-fast: 0.2s;
-  --t-base: 0.35s;
-  --t-slow: 0.65s;
+    /* ── Espaciado ── */
+    --section-py: 120px;
 
-  /* ── Espaciado ── */
-  --section-py: 120px;
+    /* ── Sombras ── */
+    --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.08);
 }

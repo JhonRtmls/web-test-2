@@ -1,18 +1,6 @@
-/* ================================================
-   LENIS — Smooth Scroll Core Styles
-   ================================================ */
-
 html.lenis,
 html.lenis body {
   height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
 }
 
 .lenis:not(.lenis-autoToggle).lenis-stopped {
@@ -27,8 +15,7 @@ html.lenis body {
   overscroll-behavior: contain;
 }
 
-.lenis.lenis-smooth iframe,
-.lenis.lenis-scrolling iframe {
+.lenis.lenis-smooth iframe {
   pointer-events: none;
 }
 
@@ -37,4 +24,3 @@ html.lenis body {
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
 }
-
