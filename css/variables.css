@@ -1,83 +1,79 @@
 /* ================================================
-    GESTOO — Design System v.4
+   GESTOO — Design Tokens
+   Paleta basada en identidad de marca Gestoo
    ================================================ */
 
 :root {
-    /* ── Escala de Azules Patagónicos (Refinada para contraste) ── */
-    --blue-50:  #F0F7FF; /* Casi blanco azulado */
-    --blue-100: #DEEDF9;
-    --blue-200: #B9D9EB;
-    --blue-300: #89BDD9;
-    --blue-400: #5A9BC0;
-    --blue-500: #3E7FA3;
-    --blue-600: #2F6586;
-    --blue-700: #25506B;
-    --blue-800: #1C3A4F;
-    --blue-900: #152A3C; /* EXCLUSIVO FONDO PRINCIPAL */
+  /* ── Fondo y superficies (Azul marino oscuro) ── */
+  --bg:        #0D1B26;   /* Más oscuro que el darkest de la paleta */
+  --surface:   #152A3C;   /* #152A3C — darkest brand color */
+  --surface-rgb: 21, 42, 60;
+  --surface-2: #20425A;   /* #20425A — second darkest */
 
-    /* ── Semántica de Capas (Depth) ── */
-    --bg: var(--blue-900);
-    --surface: var(--blue-800);    /* Bloques sobre el fondo */
-    --surface-2: var(--blue-700);  /* Destacados o hovers de superficie */
-    --surface-light: var(--blue-50); /* Secciones claras (Manifiesto, etc) */
+  /* ── Acentos principales ── */
+  --accent:       #245C81;           /* Azul Gestoo — color primario de marca */
+  --accent-mid:   #2A73A0;           /* Azul medio */
+  --accent-light: #5FA9D2;           /* Azul claro para hovers y detalles */
+  --accent-pale:  #97C6E1;           /* Azul pálido — estados desactivados */
+  --accent-2:     #E8890A;           /* Naranja — acento de contraste */
+  --accent-2-light: #F5A535;         /* Naranja claro — hovers */
 
-    /* ── Acentos Principales (Escala Azul) ── */
-    --accent: var(--blue-400);       /* Destacados sobre oscuro */
-    --accent-mid: var(--blue-500);
-    --accent-dark: var(--blue-700);
+  /* ── Blanco y negro ── */
+  --white:  #FFFFFF;
+  --off-white: #F4F9FD;              /* El tono más claro de la paleta */
+  --black:  #0A1016;
 
-    /* ── Acentos de Contraste (INTACTOS) ── */
-    --accent-2: #E8890A;       /* Naranja */
-    --accent-2-light: #F5A535;
-    --accent-red: #FF4D4D;     /* Crítico */
+  /* ── Texto ── */
+  --text:   #F4F9FD;                 /* Off-white de la paleta */
+  --text-2: #C8E0EF;                 /* Azul muy claro (#C8E0EF) */
+  --muted:  #5FA9D2;                 /* Azul medio (#5FA9D2) */
 
-    /* ── Tipografía y Legibilidad ── */
-    --text: var(--blue-50);         /* Texto principal sobre oscuro */
-    --text-2: var(--blue-200);      /* Texto secundario / Descriptivo */
-    --text-dark: var(--blue-900);   /* Texto para usar sobre secciones claras */
-    --muted: var(--blue-400);       /* Texto deshabilitado o decorativo */
+  /* ── Bordes ── */
+  --border:        rgba(36, 92, 129, 0.25);
+  --border-accent: rgba(36, 92, 129, 0.55);
+  --border-light:  rgba(244, 249, 253, 0.1);
 
-    /* ── Bordes y Líneas ── */
-    --border: rgba(185, 217, 235, 0.1); 
-    --border-accent: rgba(185, 217, 235, 0.3);
+  /* ── RGB para rgba() ── */
+  --accent-rgb:   36, 92, 129;
+  --accent-2-rgb: 232, 137, 10;
 
-    /* ── Utilidades Visuales ── */
-    --glow: rgba(90, 155, 192, 0.2);
-    --white: #FFFFFF;
-    --black: #0A151E; /* Un tono más abajo que el 900 para sombras reales */
+  /* ── Glow ── */
+  --glow:   rgba(36, 92, 129, 0.4);
+  --glow-2: rgba(232, 137, 10, 0.35);
 
-    /* ── Tipografía — Montserrat Variable ── */
-    --font: 'Montserrat', sans-serif;
-    --fw-thin: 100;
-    --fw-light: 300;
-    --fw-regular: 400;
-    --fw-medium: 500;
-    --fw-semibold: 600;
-    --fw-bold: 700;
-    --fw-extrabold: 800;
-    --fw-black: 900;
+  /* ── Tipografía — Montserrat Variable ── */
+  --font:         'Montserrat', sans-serif;
+  --fw-thin:      100;
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+  --fw-black:     900;
 
-    /* ── Layout ── */
-    --container-width: 1200px;
-    --container-pad: 2rem;
+  /* ── Layout ── */
+  --container-width: 100%;
+  --container-pad:   20px;
 
-    /* ── Radius ── */
-    --radius-sm: 8px;
-    --radius: 16px;
-    --radius-lg: 32px;
-    --radius-xl: 48px;
-    --radius-pill: 100px;
+  /* ── Radius ── */
+  --radius-sm:  8px;
+  --radius:     16px;
+  --radius-lg:  24px;
+  --radius-pill: 100px;
 
-    /* ── Transiciones ── */
-    --ease: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --t-fast: 0.2s;
-    --t-base: 0.35s;
-    --t-slow: 0.65s;
+  /* ── Transiciones ── */
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.2s;
+  --t-base: 0.35s;
+  --t-slow: 0.65s;
 
-    /* ── Espaciado ── */
-    --section-py: 120px;
+  /* ── Sombras ── */
+  --shadow-glow:   0 0 40px rgba(36, 92, 129, 0.35);
+  --shadow-glow-2: 0 0 40px rgba(232, 137, 10, 0.3);
+  --shadow-card:   0 8px 48px rgba(0, 0, 0, 0.5);
 
-    /* ── Sombras ── */
-    --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.08);
+  /* ── Espaciado ── */
+  --section-py: 140px;
 }

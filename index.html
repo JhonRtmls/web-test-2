@@ -3,59 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestoo — Agencia Creativa</title>
+    <title>Gestoo — Creative Agency | B2B, MICE & Brand Strategy</title>
     <meta
-      name="description" content="Gestoo es una agencia creativa de Punta Arenas líder en la Patagonia Chilena. Especialistas en branding, turismo MICE, producción técnica de eventos y logística en Punta Arenas. Elevamos tu marca con soluciones de alto impacto."/>
+      name="description"
+      content="Gestoo es una agencia creativa estratégica experta en B2B, producción MICE y consultoría de marca en la Patagonia Chilena. Solucionamos desafíos complejos con experiencias sorprendentes."
+    />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-
-    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/lenis.css" />
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/lenis.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
   </head>
 
   <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <!-- ============ BACKGROUND ILLUSTRATION ============ -->
+    <img src="img/pinguino.svg" alt="" class="bg-illustration bg-pinguino" />
 
-    <!-- ============ NAVBAR (v.1 Style) ============ -->
-    <header class="navbar" id="navbar">
-      <div class="navbar-inner">
+    <div id="cursor" class="cursor"></div>
+    <div id="cursorFollower" class="cursor-follower"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <header id="navbar" class="navbar">
+      <div class="container nav-inner">
         <a href="index.html" class="nav-logo">
           <img src="img/logo.png" alt="Gestoo" />
         </a>
         <nav class="nav-links">
-          <a href="pages/about.html" data-i18n="nav-about">Nosotros</a>
-          <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
-          <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
-          <a href="pages/contact.html" class="btn-nav" data-i18n="nav-contact"
-            >Hablemos</a
-          >
-          <div class="lang-switcher">
-            <button class="lang-btn" id="langBtn">
-              <span class="lang-code">ES</span>
-              <svg
-                class="lang-arrow"
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-              >
-                <path
-                  d="M1 1L5 5L9 1"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <ul class="lang-dropdown">
-              <li><button data-lang="es">ES</button></li>
-              <li><button data-lang="en">EN</button></li>
-            </ul>
-          </div>
+          <a href="pages/about.html">Nosotros</a>
+          <a href="pages/services.html">Servicios</a>
+          <a href="pages/works.html">Proyectos</a>
+          <a href="pages/contact.html" class="btn-nav">Hablemos</a>
         </nav>
         <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
           <span></span><span></span><span></span>
@@ -63,488 +48,489 @@
       </div>
     </header>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <button
-        class="mobile-menu-close"
-        id="mobileMenuClose"
-        aria-label="Cerrar menú"
-      >
-        <span></span><span></span>
-      </button>
       <nav>
-        <a href="pages/about.html" data-i18n="nav-about">Nosotros</a>
-        <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
-        <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
-        <a href="pages/contact.html" data-i18n="nav-contact">Contacto</a>
-        <div class="mobile-lang">
-          <button data-lang="es">ES</button>
-          <span>|</span>
-          <button data-lang="en">EN</button>
-        </div>
+        <a href="pages/about.html">Agencia</a>
+        <a href="pages/services.html">Servicios</a>
+        <a href="pages/works.html">Proyectos</a>
+        <a href="pages/contact.html">Contacto</a>
       </nav>
     </div>
 
     <main>
-      <!-- ============ HERO VIDEO (v.1 Style) ============ -->
-      <section class="hero" id="home">
-        <div class="hero-video-wrapper">
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            poster="img/hero.jpg"
-            class="hero-video"
-          >
+      <!-- ============ HERO (VIDEO PURO) ============ -->
+      <section class="hero" id="hero">
+        <div class="hero-video-wrap">
+          <video autoplay muted loop playsinline>
             <source src="img/hero-video.mp4" type="video/mp4" />
           </video>
           <div class="hero-overlay"></div>
         </div>
       </section>
 
-      <!-- ============ MANIFESTO (v.2 Style) ============ -->
-      <section class="manifesto-premium" id="about">
-        <div class="manifesto-container">
-          <!-- Infinito Background Illustration -->
-          <div class="manifesto-ghost-illustration" aria-hidden="true">
-            <img src="img/infinito.svg" alt="" />
-          </div>
-
-          <!-- Floating Illustrations -->
-          <div class="manifesto-images">
-            <img src="img/work-1.jpeg" class="floating-img img-1" alt="" />
-            <img src="img/work-2.jpeg" class="floating-img img-2" alt="" />
-            <img src="img/work-3.jpeg" class="floating-img img-3" alt="" />
-          </div>
-
-          <!-- Main Content -->
-          <div class="manifesto-content">
-            <h1 class="manifesto-title" data-i18n="manifesto-title">
-              SOMOS <br />
-              PARA QUIENES <br />
-              BUSCAN SOLUCIONES <br />
-              CREATIVAS <br />
-              A DESAFÍOS <br />
-              COMPLEJOS.
-            </h1>
-          </div>
-
-          <!-- Detail Box -->
-          <div class="manifesto-detail-box">
-            <p data-i18n="manifesto-detail">
-              Creando experiencias únicas desde lo más profundo de la Patagonia
-              Chilena para el mundo entero.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ STRATEGIC MARQUEE 1 (v.1 Style) ============ -->
-      <div class="marquee-wrap strategic-marquee" aria-hidden="true">
+      <!-- ============ MARQUEE ESTRATÉGICO ============ -->
+      <div class="marquee-wrap" aria-hidden="true">
         <div class="marquee-track">
           <div class="marquee-block">
-            <span data-i18n="mq-creativity">Creatividad</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-events">Eventos</span><span class="dot">·</span>
-            <span data-i18n="mq-mice">MICE</span><span class="dot">·</span>
-            <span data-i18n="mq-branding">Branding</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-patagonia">Patagonia</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-solutions">Soluciones</span
+            <span>Creatividad</span><span class="dot">·</span>
+            <span>Eventos</span><span class="dot">·</span> <span>MICE</span
+            ><span class="dot">·</span> <span>Branding</span
+            ><span class="dot">·</span> <span>Patagonia</span
+            ><span class="dot">·</span> <span>Soluciones</span
             ><span class="dot">·</span>
           </div>
           <div class="marquee-block" aria-hidden="true">
-            <span data-i18n="mq-creativity">Creatividad</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-events">Eventos</span><span class="dot">·</span>
-            <span data-i18n="mq-mice">MICE</span><span class="dot">·</span>
-            <span data-i18n="mq-branding">Branding</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-patagonia">Patagonia</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-solutions">Soluciones</span
+            <span>Creatividad</span><span class="dot">·</span>
+            <span>Eventos</span><span class="dot">·</span> <span>MICE</span
+            ><span class="dot">·</span> <span>Branding</span
+            ><span class="dot">·</span> <span>Patagonia</span
+            ><span class="dot">·</span> <span>Soluciones</span
             ><span class="dot">·</span>
           </div>
         </div>
       </div>
 
-      <!-- ============ SERVICES (v.4 Style) ============ -->
-      <section class="services-section" id="services">
-        <div class="services-dots-pattern"></div>
-        <div class="container">
-          <div class="section-header content-contained">
-            <span class="tag" data-i18n="services-tag">Ecosistema Gestoo</span>
-            <h2 class="section-title" data-i18n="services-title">
-              Nuestras <span>soluciones.</span>
+      <!-- ============ MANIFIESTO AGENCIA (NUEVO) ============ -->
+      <section class="section manifesto-section">
+        <div class="container content-contained">
+          <div class="reveal">
+            <span class="tag">Gestoo</span>
+            <h2 class="manifesto-text">
+              SOMOS PARA QUIENES BUSCAN
+              <span class="gradient-text">SOLUCIONES CREATIVAS</span> A DESAFÍOS
+              DE NEGOCIO COMPLEJOS. <br />
+              CREANDO
+              <span class="gradient-text">EXPERIENCIAS ÚNICAS</span> DESDE LA
+              PATAGONIA.
             </h2>
           </div>
         </div>
-
-        <div class="services-visual-grid">
-          <a
-            href="#"
-            class="service-item"
-            style="background-image: url(&quot;img/service-marca.jpg&quot;)"
-          >
-            <div class="service-content">
-              <span class="service-num">01</span>
-              <h3 data-i18n="service-1-title">Consultoría de Marca</h3>
-              <p data-i18n="service-1-desc">
-                Estrategia de identidad corporativa y narrativa de marca para el
-                sector B2B.
-              </p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service-item"
-            style="background-image: url(&quot;img/service-mice.jpg&quot;)"
-          >
-            <div class="service-content">
-              <span class="service-num">02</span>
-              <h3 data-i18n="service-2-title">Turismo MICE</h3>
-              <p data-i18n="service-2-desc">
-                Planificación integral y logística de congresos, incentivos y
-                convenciones en Patagonia.
-              </p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service-item"
-            style="
-              background-image: url(&quot;img/service-produccion.jpg&quot;);
-            "
-          >
-            <div class="service-content">
-              <span class="service-num">03</span>
-              <h3 data-i18n="service-3-title">Producción de Impacto</h3>
-              <p data-i18n="service-3-desc">
-                Ingeniería técnica audiovisual avanzada para eventos
-                corporativos y masivos.
-              </p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service-item"
-            style="background-image: url(&quot;img/service-renting.jpg&quot;)"
-          >
-            <div class="service-content">
-              <span class="service-num">04</span>
-              <h3 data-i18n="service-4-title">Alquiler de Equipos</h3>
-              <p data-i18n="service-4-desc">
-                Soporte de infraestructura mediante renting de audio, pantallas
-                LED y mobiliario móvil.
-              </p>
-            </div>
-          </a>
-        </div>
       </section>
 
-      <!-- ============ BRAND MARQUEE (v.4 Style) ============ -->
-      <div class="marquee-wrap brand-marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <div class="marquee-block">
-            <img
-              src="img/marcas/marca-1.svg"
-              class="brand-logo"
-              alt="Marca 1"
-            />
-            <img
-              src="img/marcas/marca-2.svg"
-              class="brand-logo"
-              alt="Marca 2"
-            />
-            <img
-              src="img/marcas/marca-3.svg"
-              class="brand-logo"
-              alt="Marca 3"
-            />
-            <img
-              src="img/marcas/marca-4.svg"
-              class="brand-logo"
-              alt="Marca 4"
-            />
-            <img
-              src="img/marcas/marca-5.svg"
-              class="brand-logo"
-              alt="Marca 5"
-            />
-            <img
-              src="img/marcas/marca-6.svg"
-              class="brand-logo"
-              alt="Marca 6"
-            />
-            <img
-              src="img/marcas/marca-7.svg"
-              class="brand-logo"
-              alt="Marca 7"
-            />
-            <img
-              src="img/marcas/marca-8.svg"
-              class="brand-logo"
-              alt="Marca 8"
-            />
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="marquee-block" aria-hidden="true">
-            <img
-              src="img/marcas/marca-1.svg"
-              class="brand-logo"
-              alt="Marca 1"
-            />
-            <img
-              src="img/marcas/marca-2.svg"
-              class="brand-logo"
-              alt="Marca 2"
-            />
-            <img
-              src="img/marcas/marca-3.svg"
-              class="brand-logo"
-              alt="Marca 3"
-            />
-            <img
-              src="img/marcas/marca-4.svg"
-              class="brand-logo"
-              alt="Marca 4"
-            />
-            <img
-              src="img/marcas/marca-5.svg"
-              class="brand-logo"
-              alt="Marca 5"
-            />
-            <img
-              src="img/marcas/marca-6.svg"
-              class="brand-logo"
-              alt="Marca 6"
-            />
-            <img
-              src="img/marcas/marca-7.svg"
-              class="brand-logo"
-              alt="Marca 7"
-            />
-            <img
-              src="img/marcas/marca-8.svg"
-              class="brand-logo"
-              alt="Marca 8"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- ============ WORKS / PORTFOLIO (v.1 Style) ============ -->
-      <section class="works-section" id="works">
+      <!-- ============ SERVICIOS ESTRATÉGICOS (4 PILARES VISUALES) ============ -->
+      <section class="section" id="services">
         <div class="container">
-          <div class="section-header content-contained">
-            <span class="tag" data-i18n="works-tag">Selection</span>
-            <h2 class="section-title" data-i18n="works-title">
-              Casos de <em>éxito.</em>
-            </h2>
+          <div class="section-header reveal content-contained">
+            <span class="tag">Ecosistema Gestoo</span>
+            <h2 class="section-title">Nuestras <em>soluciones.</em></h2>
           </div>
-        </div>
 
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-media">
-              <video src="img/test.mp4" autoplay muted loop playsinline></video>
-            </div>
-            <div class="work-overlay">
-              <span class="work-cat" data-i18n="work-1-cat">B2B Strategy</span>
-              <h3 data-i18n="work-1-title">Patagonia Summit</h3>
-              <p data-i18n="work-1-desc">
-                Consultoría integral y producción de alta gama.
-              </p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="work-media">
-              <video
-                src="img/test-2.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-              ></video>
-            </div>
-            <div class="work-overlay">
-              <span class="work-cat" data-i18n="work-2-cat"
-                >Brand Experience</span
-              >
-              <h3 data-i18n="work-2-title">Gala Corporativa</h3>
-              <p data-i18n="work-2-desc">
-                Diseño de marca y producción técnica sensorial.
-              </p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="work-media">
-              <img src="img/work-3.jpeg" alt="Show" />
-            </div>
-            <div class="work-overlay">
-              <span class="work-cat" data-i18n="work-3-cat"
-                >MICE & Tourism</span
-              >
-              <h3 data-i18n="work-3-title">Incentivo Regional</h3>
-              <p data-i18n="work-3-desc">
-                Logística de lujo y operación técnica en terreno.
-              </p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="work-media">
-              <img src="img/work-4.jpeg" alt="Lanzamiento" />
-            </div>
-            <div class="work-overlay">
-              <span class="work-cat" data-i18n="work-4-cat"
-                >Equipment Rental</span
-              >
-              <h3 data-i18n="work-4-title">Launch Interactive</h3>
-              <p data-i18n="work-4-desc">
-                Renting de tecnología interactiva y pantallas LED.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ STRATEGIC MARQUEE 2 (v.1 Style) ============ -->
-      <div class="marquee-wrap strategic-marquee highlight" aria-hidden="true">
-        <div class="marquee-track">
-          <div class="marquee-block">
-            <span data-i18n="mq-branding">Branding</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-logistics">Logística</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-production">Producción</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-creativity">Creatividad</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-experience">Experiencia</span
-            ><span class="dot">·</span>
-          </div>
-          <div class="marquee-block" aria-hidden="true">
-            <span data-i18n="mq-branding">Branding</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-logistics">Logística</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-production">Producción</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-creativity">Creatividad</span
-            ><span class="dot">·</span>
-            <span data-i18n="mq-experience">Experiencia</span
-            ><span class="dot">·</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============ PROBLEM SOLVER (v.2 Style) ============ -->
-      <section class="solver-section" id="contact">
-        <div class="solver-sticky">
-          <!-- Layer 1: The Problem -->
-          <div class="solver-layer layer-problem">
-            <div class="container content-contained">
-              <span class="status-badge" data-i18n="solver-problem-tag"
-                >El Problema</span
-              >
-              <h2 class="solver-text" data-i18n="solver-problem-text">
-                ¿NECESITAS PRODUCCIÓN Y LOGÍSTICA PARA TU PRÓXIMO PROYECTO?
-              </h2>
-            </div>
-          </div>
-          <!-- Layer 2: The Solution -->
-          <div class="solver-layer layer-solution">
-            <div class="container content-contained">
-              <span class="status-badge white" data-i18n="solver-solution-tag"
-                >La Solución</span
-              >
-              <h2 class="solver-text" data-i18n="solver-solution-text">
-                TE AYUDAMOS A QUE CADA PROYECTO SEA UNA INVERSIÓN,<br />
-                NO UN GASTO.
-              </h2>
-              <div class="solver-actions">
-                <a
-                  href="pages/contact.html"
-                  class="btn-primary"
-                  data-i18n="solver-btn"
-                  >COTIZA TU SOLUCIÓN</a
-                >
+          <div class="services-visual-grid">
+            <!-- 01 MARCA -->
+            <a
+              href="pages/services/brand-consulting.html"
+              class="service-visual-item reveal"
+              style="background-image: url(&quot;img/service-marca.jpg&quot;)"
+            >
+              <div class="service-overlay"></div>
+              <div class="service-content">
+                <span class="service-num">01</span>
+                <h3>Consultoría de Marca</h3>
+                <p>
+                  Estrategia de identidad corporativa y narrativa de marca para
+                  el sector B2B.
+                </p>
               </div>
+            </a>
+
+            <!-- 02 MICE -->
+            <a
+              href="pages/services/mice-tourism.html"
+              class="service-visual-item reveal"
+              style="background-image: url(&quot;img/service-mice.jpg&quot;)"
+            >
+              <div class="service-overlay"></div>
+              <div class="service-content">
+                <span class="service-num">02</span>
+                <h3>Turismo MICE</h3>
+                <p>
+                  Planificación integral y logística de congresos, incentivos y
+                  convenciones en Patagonia.
+                </p>
+              </div>
+            </a>
+
+            <!-- 03 PRODUCCIÓN -->
+            <a
+              href="pages/services/audiovisual-production.html"
+              class="service-visual-item reveal"
+              style="
+                background-image: url(&quot;img/service-produccion.jpg&quot;);
+              "
+            >
+              <div class="service-overlay"></div>
+              <div class="service-content">
+                <span class="service-num">03</span>
+                <h3>Producción de Impacto</h3>
+                <p>
+                  Ingeniería técnica audiovisual avanzada para eventos
+                  corporativos y masivos.
+                </p>
+              </div>
+            </a>
+
+            <!-- 04 RENTING -->
+            <a
+              href="pages/services/renting-equipment.html"
+              class="service-visual-item reveal"
+              style="background-image: url(&quot;img/service-renting.jpg&quot;)"
+            >
+              <div class="service-overlay"></div>
+              <div class="service-content">
+                <span class="service-num">04</span>
+                <h3>Alquiler de Equipos</h3>
+                <p>
+                  Soporte de infraestructura mediante renting de audio,
+                  pantallas LED y mobiliario móvil.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PORTAFOLIO (REJILLA DE IMPACTO) ============ -->
+      <section class="section" id="works">
+        <div class="container">
+          <div class="works-header-agency reveal">
+            <div class="content-contained" style="width: 100%">
+              <span class="tag">Selection</span>
+              <h2 class="section-title">Casos de <em>éxito.</em></h2>
+            </div>
+          </div>
+
+          <div class="works-grid-agency">
+            <div class="work-card reveal">
+              <div class="work-img">
+                <div class="work-img-bg c1">
+                  <video
+                    src="img/test.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  ></video>
+                </div>
+                <div class="work-overlay">
+                  <span class="work-cat">B2B Strategy</span>
+                  <h3>Patagonia Summit</h3>
+                  <p>Consultoría integral y producción de alta gama.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-card reveal">
+              <div class="work-img">
+                <div class="work-img-bg c2">
+                  <video
+                    src="img/test-2.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  ></video>
+                </div>
+                <div class="work-overlay">
+                  <span class="work-cat">Brand Experience</span>
+                  <h3>Gala Corporativa</h3>
+                  <p>Diseño de marca y producción técnica sensorial.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-card reveal">
+              <div class="work-img">
+                <div class="work-img-bg c3">
+                  <img src="img/work-3.jpeg" alt="Show" loading="lazy" />
+                </div>
+                <div class="work-overlay">
+                  <span class="work-cat">MICE & Tourism</span>
+                  <h3>Incentivo Regional</h3>
+                  <p>Logística de lujo y operación técnica en terreno.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-card reveal">
+              <div class="work-img">
+                <div class="work-img-bg c4">
+                  <img src="img/work-4.jpeg" alt="Lanzamiento" loading="lazy" />
+                </div>
+                <div class="work-overlay">
+                  <span class="work-cat">Equipment Rental</span>
+                  <h3>Launch Interactive</h3>
+                  <p>Renting de tecnología interactiva y pantallas LED.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MARQUEE DE MARCAS (LOGOS) ============ -->
+      <div class="marquee-wrap marquee-brands" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-block">
+            <img
+              src="img/marcas/marca-1.svg"
+              class="brand-logo"
+              alt="Marca 1"
+            />
+            <img
+              src="img/marcas/marca-2.svg"
+              class="brand-logo"
+              alt="Marca 2"
+            />
+            <img
+              src="img/marcas/marca-3.svg"
+              class="brand-logo"
+              alt="Marca 3"
+            />
+            <img
+              src="img/marcas/marca-4.svg"
+              class="brand-logo"
+              alt="Marca 4"
+            />
+            <img
+              src="img/marcas/marca-5.svg"
+              class="brand-logo"
+              alt="Marca 5"
+            />
+            <img
+              src="img/marcas/marca-6.svg"
+              class="brand-logo"
+              alt="Marca 6"
+            />
+            <img
+              src="img/marcas/marca-7.svg"
+              class="brand-logo"
+              alt="Marca 7"
+            />
+            <img
+              src="img/marcas/marca-8.svg"
+              class="brand-logo"
+              alt="Marca 8"
+            />
+            <img
+              src="img/marcas/marca-9.svg"
+              class="brand-logo"
+              alt="Marca 9"
+            />
+            <img
+              src="img/marcas/marca-10.svg"
+              class="brand-logo"
+              alt="Marca 10"
+            />
+            <img
+              src="img/marcas/marca-11.svg"
+              class="brand-logo"
+              alt="Marca 11"
+            />
+            <img
+              src="img/marcas/marca-12.svg"
+              class="brand-logo"
+              alt="Marca 12"
+            />
+            <img
+              src="img/marcas/marca-13.svg"
+              class="brand-logo"
+              alt="Marca 13"
+            />
+            <img
+              src="img/marcas/marca-14.svg"
+              class="brand-logo"
+              alt="Marca 14"
+            />
+            <img
+              src="img/marcas/marca-15.svg"
+              class="brand-logo"
+              alt="Marca 15"
+            />
+            <img
+              src="img/marcas/marca-16.svg"
+              class="brand-logo"
+              alt="Marca 16"
+            />
+            <img
+              src="img/marcas/marca-17.svg"
+              class="brand-logo"
+              alt="Marca 17"
+            />
+            <img
+              src="img/marcas/marca-18.svg"
+              class="brand-logo"
+              alt="Marca 18"
+            />
+          </div>
+          <div class="marquee-block" aria-hidden="true">
+            <img
+              src="img/marcas/marca-1.svg"
+              class="brand-logo"
+              alt="Marca 1"
+            />
+            <img
+              src="img/marcas/marca-2.svg"
+              class="brand-logo"
+              alt="Marca 2"
+            />
+            <img
+              src="img/marcas/marca-3.svg"
+              class="brand-logo"
+              alt="Marca 3"
+            />
+            <img
+              src="img/marcas/marca-4.svg"
+              class="brand-logo"
+              alt="Marca 4"
+            />
+            <img
+              src="img/marcas/marca-5.svg"
+              class="brand-logo"
+              alt="Marca 5"
+            />
+            <img
+              src="img/marcas/marca-6.svg"
+              class="brand-logo"
+              alt="Marca 6"
+            />
+            <img
+              src="img/marcas/marca-7.svg"
+              class="brand-logo"
+              alt="Marca 7"
+            />
+            <img
+              src="img/marcas/marca-8.svg"
+              class="brand-logo"
+              alt="Marca 8"
+            />
+            <img
+              src="img/marcas/marca-9.svg"
+              class="brand-logo"
+              alt="Marca 9"
+            />
+            <img
+              src="img/marcas/marca-10.svg"
+              class="brand-logo"
+              alt="Marca 10"
+            />
+            <img
+              src="img/marcas/marca-11.svg"
+              class="brand-logo"
+              alt="Marca 11"
+            />
+            <img
+              src="img/marcas/marca-12.svg"
+              class="brand-logo"
+              alt="Marca 12"
+            />
+            <img
+              src="img/marcas/marca-13.svg"
+              class="brand-logo"
+              alt="Marca 13"
+            />
+            <img
+              src="img/marcas/marca-14.svg"
+              class="brand-logo"
+              alt="Marca 14"
+            />
+            <img
+              src="img/marcas/marca-15.svg"
+              class="brand-logo"
+              alt="Marca 15"
+            />
+            <img
+              src="img/marcas/marca-16.svg"
+              class="brand-logo"
+              alt="Marca 16"
+            />
+            <img
+              src="img/marcas/marca-17.svg"
+              class="brand-logo"
+              alt="Marca 17"
+            />
+            <img
+              src="img/marcas/marca-18.svg"
+              class="brand-logo"
+              alt="Marca 18"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SOLUCIONADORES B2B (NUEVO) ============ -->
+      <section class="section solution-section">
+        <div class="container content-contained">
+          <div class="solution-card reveal">
+            <div class="solution-text">
+              <span class="tag">Problem Solvers</span>
+              <h2 class="cta-title">
+                ¿Tienes un desafío? <br />
+                Somos la <span class="gradient-text">solución.</span>
+              </h2>
+              <p>
+                Optimizamos procesos, elevamos tu marca y garantizamos que cada
+                evento sea una inversión, no un gasto. Tu éxito es nuestra
+                métrica.
+              </p>
+              <a href="pages/contact.html" class="btn-primary"
+                >Cotiza tu solución ahora →</a
+              >
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- ============ FOOTER (v.1 Style) ============ -->
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
-      <div class="container">
+      <div class="container content-contained">
         <div class="footer-grid">
-          <div class="footer-brand">
-            <a href="index.html" class="footer-logo">
-              <img src="img/logo.png" alt="Gestoo" />
+          <div class="footer-brand footer-col">
+            <a href="/" class="nav-logo">
+              <img
+                src="img/logo.png"
+                alt="Gestoo"
+                style="height: 40px; filter: brightness(0) invert(1)"
+              />
             </a>
-            <p data-i18n="footer-desc">
+            <p>
               Potenciando negocios a través de experiencias creativas.<br />Punta
               Arenas, Chile.
             </p>
           </div>
-
-          <div class="footer-nav-group">
-            <div class="footer-nav">
-              <h4 data-i18n="footer-agency">Agencia</h4>
-              <nav class="footer-links">
-                <a href="pages/about.html" data-i18n="nav-about">Quiénes somos</a>
-                <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
-                <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
-                <a href="pages/contact.html" data-i18n="nav-contact">Contacto</a>
-              </nav>
-            </div>
-            <div class="footer-specialties">
-              <h4 data-i18n="footer-specialties">Especialidades</h4>
-              <nav class="footer-links">
-                <a href="#">Marketing B2B</a>
-                <a href="#">Producción MICE</a>
-                <a href="#">Alquiler de Equipos</a>
-              </nav>
-            </div>
-            <div class="footer-contact">
-              <h4 data-i18n="footer-contact">Contacto</h4>
-              <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
-              <p>Punta Arenas, Chile</p>
-            </div>
+          <div class="footer-col">
+            <h4>Agencia</h4>
+            <a href="pages/about.html">Quiénes somos</a>
+            <a href="pages/services.html">Nuestros servicios</a>
+            <a href="pages/works.html">Proyectos</a>
+            <a href="pages/contact.html">Contacto</a>
+          </div>
+          <div class="footer-col">
+            <h4>Especialidades</h4>
+            <a href="pages/services/brand-consulting.html">Marketing B2B</a>
+            <a href="pages/services/mice-tourism.html">Producción MICE</a>
+            <a href="pages/services/renting-equipment.html"
+              >Alquiler de Equipos</a
+            >
+            <a href="pages/services/brand-consulting.html"
+              >Consultoría de Marca</a
+            >
+          </div>
+          <div class="footer-col">
+            <h4>Magallanes</h4>
+            <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
+            <p>Punta Arenas, Chile</p>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>
-            &copy; 2025 Gestoo Creative Agency. Todos los derechos reservados.
-          </p>
-          <div class="footer-socials">
-            <a href="#" aria-label="YouTube" class="social-link">
-              <img src="img/redes_sociales_icons/youtube.svg" alt="" />
-            </a>
-            <a href="#" aria-label="Instagram" class="social-link">
-              <img src="img/redes_sociales_icons/instagram.svg" alt="" />
-            </a>
-            <a href="#" aria-label="Facebook" class="social-link">
-              <img src="img/redes_sociales_icons/facebook.svg" alt="" />
-            </a>
-            <a href="#" aria-label="LinkedIn" class="social-link">
-              <img src="img/redes_sociales_icons/linkedin.svg" alt="" />
-            </a>
-          </div>
+          <p>© 2025 Gestoo Creative Agency.</p>
         </div>
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

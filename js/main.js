@@ -1,249 +1,140 @@
 /* ================================================
-    GESTOO — Main JavaScript v.4
+   GESTOO — Main JavaScript
    ================================================ */
 
-document.addEventListener("DOMContentLoaded", () => {
-  // ── Lenis Smooth Scroll ──
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Initialize a new Lenis instance for smooth scrolling
   const lenis = new Lenis();
 
-  lenis.on("scroll", ScrollTrigger.update);
+  // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+  lenis.on('scroll', ScrollTrigger.update);
 
+  // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+  // This ensures Lenis's smooth scroll animation updates on each GSAP tick
   gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
+    lenis.raf(time * 1000); // Convert time from seconds to milliseconds
   });
 
+  // Disable lag smoothing in GSAP to prevent any delay in scroll animations
   gsap.ticker.lagSmoothing(0);
 
-  // ── Dynamic Background Color Scrub ──
-  const body = document.body;
-  const bgBlue = "#152A3C"; // var(--bg)
-  const bgWhite = "#FFFFFF";
-
-  gsap.set(body, { backgroundColor: bgWhite });
-
-  // Transition: White -> Blue (Entering Marquee/Services)
-  gsap.to(body, {
-    backgroundColor: bgBlue,
-    scrollTrigger: {
-      trigger: ".strategic-marquee",
-      start: "top 90%",
-      end: "top 20%",
-      scrub: true,
-    },
-  });
-
-  // ── Utility: Split text into spans (Words) ──
-  const splitText = (el) => {
-    const text = el.textContent.trim();
-    const words = text.split(/\s+/);
-    el.innerHTML = words.map((word) => `<span>${word}</span>`).join(" ");
-  };
-
-  // ── Navbar Scroll Effect ──
-  const navbar = document.getElementById("navbar");
-  const updateNavbar = () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  };
-  window.addEventListener("scroll", updateNavbar, { passive: true });
-
-  // ── Mobile Menu ──
-  const burger = document.getElementById("navBurger");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (burger && mobileMenu) {
-    burger.addEventListener("click", () => {
-      const isOpen = mobileMenu.classList.toggle("open");
-      burger.classList.toggle("active", isOpen);
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-
-    const closeBtn = document.getElementById("mobileMenuClose");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        burger.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-    }
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        burger.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-    });
-  }
-
-  // ── Custom Cursor ──
-  const cursor = document.querySelector(".cursor");
-  const follower = document.querySelector(".cursor-follower");
+  /* ---- Custom Cursor ---- */
+  const cursor = document.getElementById('cursor');
+  const follower = document.getElementById('cursorFollower');
+  let mouseX = 0, mouseY = 0;
+  let followerX = 0, followerY = 0;
 
   if (cursor && follower) {
-    document.addEventListener("mousemove", (e) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.1,
-      });
-      gsap.to(follower, {
-        x: e.clientX - 16,
-        y: e.clientY - 16,
-        duration: 0.3,
-      });
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
     });
 
-    // Hover effects for interactive elements
-    const interactives = document.querySelectorAll(
-      "a, button, .service-item, .work-card, .brand-logo",
-    );
-    interactives.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        gsap.to(cursor, { scale: 1.5, backgroundColor: "var(--white)" });
-        gsap.to(follower, { scale: 1.5, borderColor: "var(--white)" });
-      });
-      el.addEventListener("mouseleave", () => {
-        gsap.to(cursor, { scale: 1, backgroundColor: "var(--accent-2)" });
-        gsap.to(follower, { scale: 1, borderColor: "var(--accent-2)" });
+    // Smooth follower via rAF
+    function animateFollower() {
+      followerX += (mouseX - followerX) * 0.12;
+      followerY += (mouseY - followerY) * 0.12;
+      follower.style.left = followerX + 'px';
+      follower.style.top  = followerY + 'px';
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Hover effect on interactive elements
+    const hoverTargets = document.querySelectorAll('a, button, [data-hover]');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
+    });
+  }
+
+  /* ---- Navbar scroll ---- */
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---- Mobile menu ---- */
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
   }
 
-  // ── Manifesto Animations (v.2 style) ──
-  const manifestoSection = document.querySelector(".manifesto-premium");
-  if (manifestoSection) {
-    const title = manifestoSection.querySelector(".manifesto-title");
-    splitText(title);
+  /* ---- Reveal on scroll (Intersection Observer) ---- */
+  const reveals = document.querySelectorAll('.reveal');
 
-    const titleSpans = title.querySelectorAll("span");
+  if (reveals.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target); // once
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -48px 0px' });
 
-    // Scroll-triggered text reveal
-    gsap.to(titleSpans, {
-      opacity: 1,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: title,
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-      },
-    });
-
-    // Infinito parallax (Synced with Title Reveal)
-    gsap.fromTo(
-      ".manifesto-ghost-illustration",
-      { yPercent: 90 },
-      {
-        yPercent: -90,
-        scrollTrigger: {
-          trigger: title,
-          start: "top bottom", // Starts when title enters
-          end: "bottom top", // Ends when title leaves
-          scrub: 1,
-        },
-      },
-    );
-
-    // Floating images parallax
-    gsap.to(".img-1", {
-      y: -120,
-      rotate: 5,
-      scrollTrigger: {
-        trigger: ".manifesto-premium",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.5,
-      },
-    });
-
-    gsap.to(".img-2", {
-      y: -200,
-      rotate: -8,
-      scrollTrigger: {
-        trigger: ".manifesto-premium",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 2,
-      },
-    });
-
-    gsap.to(".img-3", {
-      y: -150,
-      rotate: 3,
-      scrollTrigger: {
-        trigger: ".manifesto-premium",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.2,
-      },
-    });
-
-    // Detail box reveal
-    gsap.from(".manifesto-detail-box", {
-      y: 50,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".manifesto-detail-box",
-        start: "top 90%",
-        toggleActions: "play none none reverse",
-      },
-    });
+    reveals.forEach(el => revealObserver.observe(el));
   }
 
-  // ── Problem Solver Reveal (v.4 Refined) ──
-  const solverSection = document.querySelector(".solver-section");
-  if (solverSection) {
-    gsap.fromTo(
-      ".layer-solution",
-      { yPercent: 100 },
-      {
-        yPercent: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".solver-section",
-          start: "top top",
-          end: "+=150%",
-          scrub: true,
-          pin: true,
-          anticipatePin: 0.5,
-          invalidateOnRefresh: true,
-        },
-      },
-    );
+  /* ---- Animated counters ---- */
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+
+  if (statNums.length) {
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    const animateCounter = (el, target, duration = 1800) => {
+      const start = performance.now();
+      const update = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        el.textContent = Math.round(easeOut(progress) * target);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(update);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          animateCounter(el, parseInt(el.dataset.target));
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statNums.forEach(el => counterObserver.observe(el));
   }
 
-  // ── Smooth Anchors ──
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+  /* ---- Smooth scroll for anchor links ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
-        lenis.scrollTo(target);
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // ── Global Reveal Observer ──
-  const revealElements = document.querySelectorAll(".reveal");
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  // Refresh ScrollTrigger after everything is loaded
-  ScrollTrigger.refresh();
 });
