@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto — Gestoo | Punta Arenas</title>
+    <meta
+      name="description"
+      content="Contáctanos para cotizar tu evento en Punta Arenas. Gestoo diseña experiencias sorprendentes para empresas y personas."
+    />
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/lenis.css" />
+    <link rel="stylesheet" href="../css/pages/inner.css" />
+    <link rel="stylesheet" href="../css/pages/contact.css" />
+  </head>
+
+  <body>
+    <!-- ============ BACKGROUND ILLUSTRATION ============ -->
+    <img src="../img/pinguino.svg" alt="" class="bg-illustration bg-pinguino" />
+
+    <div id="cursor" class="cursor"></div>
+    <div id="cursorFollower" class="cursor-follower"></div>
+
+    <!-- ============ NAVBAR (Interior con Inicio) ============ -->
+    <header id="navbar" class="navbar scrolled">
+      <div class="navbar-inner">
+        <a href="../index.html" class="nav-logo">
+          <img src="../img/logo.png" alt="Gestoo" />
+        </a>
+        <nav class="nav-links">
+          <a href="../index.html" data-i18n="nav-home">Inicio</a>
+          <a href="about.html" data-i18n="nav-about">Nosotros</a>
+          <a href="services.html" data-i18n="nav-services">Servicios</a>
+          <a href="works.html" data-i18n="nav-works">Proyectos</a>
+          <a href="contact.html" class="btn-nav" data-i18n="nav-contact"
+            >Hablemos</a
+          >
+          <div class="lang-switcher">
+            <button class="lang-btn" id="langBtn">
+              <span class="lang-code">ES</span>
+              <svg
+                class="lang-arrow"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul class="lang-dropdown">
+              <li><button data-lang="es">ES</button></li>
+              <li><button data-lang="en">EN</button></li>
+            </ul>
+          </div>
+        </nav>
+        <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Cerrar menú"
+      >
+        <span></span><span></span>
+      </button>
+      <nav>
+        <a href="../index.html" data-i18n="nav-home">Inicio</a>
+        <a href="about.html" data-i18n="nav-about">Nosotros</a>
+        <a href="services.html" data-i18n="nav-services">Servicios</a>
+        <a href="works.html" data-i18n="nav-works">Proyectos</a>
+        <a href="contact.html" data-i18n="nav-contact">Contacto</a>
+        <div class="mobile-lang">
+          <button data-lang="es">ESP</button>
+          <span>|</span>
+          <button data-lang="en">ENG</button>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <!-- ============ CONTACT SECTION ============ -->
+      <section class="section contact-section">
+        <div class="container content-contained">
+          <div class="contact-grid">
+            <!-- Column 1: Messaging & Info -->
+            <div class="contact-info-column reveal">
+              <span class="tag" data-i18n="nav-contact">Contacto</span>
+              <h1 class="page-title" style="margin-bottom: 2rem">
+                Hablemos de <br /><span class="gradient-blue-text"
+                  >tu visión.</span
+                >
+              </h1>
+              <p class="contact-description" data-i18n="contact-hero-desc">
+                Desde la Patagonia para todo Chile, transformamos la complejidad
+                en experiencias memorables. Cuéntanos qué tienes en mente.
+              </p>
+
+              <div class="contact-methods">
+                <div class="method-item">
+                  <div class="method-icon">
+                    <img
+                      src="../img/contacto_icons/location.svg"
+                      alt="Ubicación"
+                    />
+                  </div>
+                  <div class="method-text">
+                    <label data-i18n="contact-info-location">Ubicación</label>
+                    <p>
+                      Av. Independencia 313, <br />
+                      Punta Arenas, Magallanes, Chile
+                    </p>
+                  </div>
+                </div>
+
+                <div class="method-item">
+                  <div class="method-icon">
+                    <img src="../img/contacto_icons/mail.svg" alt="Email" />
+                  </div>
+                  <div class="method-text">
+                    <label data-i18n="contact-info-email"
+                      >Email Corporativo</label
+                    >
+                    <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
+                  </div>
+                </div>
+
+                <div class="method-item">
+                  <div class="method-icon">
+                    <img
+                      src="../img/contacto_icons/whatsapp.svg"
+                      alt="WhatsApp"
+                    />
+                  </div>
+                  <div class="method-text">
+                    <label data-i18n="contact-info-whatsapp"
+                      >WhatsApp Business</label
+                    >
+                    <a href="tel:+56981887723">+56 9 8188 7723</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: The Form -->
+            <div class="contact-form-column reveal">
+              <form class="premium-form" id="contactForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label data-i18n="contact-form-name"
+                      >Nombre Completo *</label
+                    >
+                    <input type="text" placeholder="Ej: Juan Pérez" required />
+                  </div>
+                  <div class="form-group">
+                    <label data-i18n="contact-form-company"
+                      >Empresa / Institución</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Nombre de tu organización"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label data-i18n="contact-form-email"
+                      >Email de Contacto *</label
+                    >
+                    <input type="email" placeholder="tu@email.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label data-i18n="contact-sidebar-phone">Teléfono</label>
+                    <input type="tel" placeholder="+56 9 xxxx xxxx" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="contact-form-service"
+                    >Servicio de Interés *</label
+                  >
+                  <select required>
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      data-i18n="contact-form-select"
+                    >
+                      Selecciona una opción
+                    </option>
+                    <option value="corporativo">Consultoría B2B</option>
+                    <option value="mice">Turismo MICE / Congresos</option>
+                    <option value="audiovisual">Producción Audiovisual</option>
+                    <option value="branding">Identidad de Marca</option>
+                    <option value="otro">Otro Requerimiento</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="contact-form-message"
+                    >Detalles del Desafío *</label
+                  >
+                  <textarea
+                    placeholder="Cuéntanos brevemente sobre los objetivos de tu proyecto..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-submit">
+                  <button
+                    type="submit"
+                    class="btn-orange-glow"
+                    id="submitBtn"
+                    data-i18n="contact-form-btn"
+                  >
+                    Enviar Requerimiento →
+                  </button>
+                </div>
+
+                <div
+                  id="formSuccess"
+                  style="
+                    display: none;
+                    margin-top: 1rem;
+                    padding: 1.5rem;
+                    background: rgba(var(--accent-rgb), 0.1);
+                    border: 1px solid var(--border-accent);
+                    border-radius: var(--radius);
+                    color: var(--accent-light);
+                    font-weight: var(--fw-semibold);
+                  "
+                >
+                  ✓ Solicitud recibida. Un consultor se pondrá en contacto
+                  pronto.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo">
+            <img src="../img/logo.png" alt="Gestoo" />
+          </a>
+          <p data-i18n="footer-desc">
+            Potenciando negocios a través de experiencias creativas.<br />Punta
+            Arenas, Chile.
+          </p>
+        </div>
+        <div class="footer-nav-group">
+          <div class="footer-nav">
+            <h4 data-i18n="footer-agency">Agencia</h4>
+            <nav class="footer-links">
+              <a href="about.html" data-i18n="nav-about">Quiénes somos</a>
+              <a href="services.html" data-i18n="nav-services">Servicios</a>
+              <a href="works.html" data-i18n="nav-works">Proyectos</a>
+              <a href="contact.html" data-i18n="nav-contact">Contacto</a>
+            </nav>
+          </div>
+          <div class="footer-specialties">
+            <h4 data-i18n="footer-specialties">Especialidades</h4>
+            <nav class="footer-links">
+              <a href="#">Marketing B2B</a>
+              <a href="#">Producción MICE</a>
+              <a href="#">Alquiler de Equipos</a>
+            </nav>
+          </div>
+          <div class="footer-contact">
+            <h4 data-i18n="footer-contact">Contacto</h4>
+            <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
+            <p>Punta Arenas, Chile</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Gestoo Creative Agency. Todos los derechos reservados.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="YouTube" class="social-link">
+            <img src="../img/redes_sociales_icons/youtube.svg" alt="" />
+          </a>
+          <a href="#" aria-label="Instagram" class="social-link">
+            <img src="../img/redes_sociales_icons/instagram.svg" alt="" />
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link">
+            <img src="../img/redes_sociales_icons/facebook.svg" alt="" />
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-link">
+            <img src="../img/redes_sociales_icons/linkedin.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      // Form submit handler simple
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = document.getElementById("submitBtn");
+          btn.textContent = "Enviando...";
+          btn.disabled = true;
+          setTimeout(() => {
+            document.getElementById("formSuccess").style.display = "block";
+            btn.style.display = "none";
+            this.reset();
+          }, 1200);
+        });
+      }
+    </script>
+  </body>
+</html>

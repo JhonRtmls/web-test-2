@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestoo — Creative Agency</title>
+    <title>Gestoo — Agencia Creativa</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
 
     <!-- CSS -->
@@ -14,6 +14,9 @@
   </head>
 
   <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- ============ NAVBAR (v.1 Style) ============ -->
     <header class="navbar" id="navbar">
       <div class="navbar-inner">
@@ -21,10 +24,36 @@
           <img src="img/logo.png" alt="Gestoo" />
         </a>
         <nav class="nav-links">
-          <a href="#about">Nosotros</a>
-          <a href="#services">Servicios</a>
-          <a href="#works">Proyectos</a>
-          <a href="#contact" class="btn-nav">Hablemos</a>
+          <a href="pages/about.html" data-i18n="nav-about">Nosotros</a>
+          <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
+          <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
+          <a href="pages/contact.html" class="btn-nav" data-i18n="nav-contact"
+            >Hablemos</a
+          >
+          <div class="lang-switcher">
+            <button class="lang-btn" id="langBtn">
+              <span class="lang-code">ES</span>
+              <svg
+                class="lang-arrow"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul class="lang-dropdown">
+              <li><button data-lang="es">ES</button></li>
+              <li><button data-lang="en">EN</button></li>
+            </ul>
+          </div>
         </nav>
         <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
           <span></span><span></span><span></span>
@@ -34,11 +63,23 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Cerrar menú"
+      >
+        <span></span><span></span>
+      </button>
       <nav>
-        <a href="#about">Agencia</a>
-        <a href="#services">Servicios</a>
-        <a href="#works">Proyectos</a>
-        <a href="#contact">Contacto</a>
+        <a href="pages/about.html" data-i18n="nav-about">Nosotros</a>
+        <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
+        <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
+        <a href="pages/contact.html" data-i18n="nav-contact">Contacto</a>
+        <div class="mobile-lang">
+          <button data-lang="es">ES</button>
+          <span>|</span>
+          <button data-lang="en">EN</button>
+        </div>
       </nav>
     </div>
 
@@ -46,7 +87,14 @@
       <!-- ============ HERO VIDEO (v.1 Style) ============ -->
       <section class="hero" id="home">
         <div class="hero-video-wrapper">
-          <video autoplay muted loop playsinline poster="img/hero.jpg" class="hero-video">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="img/hero.jpg"
+            class="hero-video"
+          >
             <source src="img/hero-video.mp4" type="video/mp4" />
           </video>
           <div class="hero-overlay"></div>
@@ -56,9 +104,9 @@
       <!-- ============ MANIFESTO (v.2 Style) ============ -->
       <section class="manifesto-premium" id="about">
         <div class="manifesto-container">
-          <!-- Ghost Text Background -->
-          <div class="manifesto-ghost" aria-hidden="true">
-            GENERANDO MICE DESDE LA PATAGONIA
+          <!-- Infinito Background Illustration -->
+          <div class="manifesto-ghost-illustration" aria-hidden="true">
+            <img src="img/infinito.svg" alt="" />
           </div>
 
           <!-- Floating Illustrations -->
@@ -70,19 +118,19 @@
 
           <!-- Main Content -->
           <div class="manifesto-content">
-            <h2 class="manifesto-title">
+            <h1 class="manifesto-title" data-i18n="manifesto-title">
               SOMOS <br />
               PARA QUIENES <br />
               BUSCAN SOLUCIONES <br />
               CREATIVAS <br />
               A DESAFÍOS <br />
               COMPLEJOS.
-            </h2>
+            </h1>
           </div>
 
           <!-- Detail Box -->
           <div class="manifesto-detail-box">
-            <p>
+            <p data-i18n="manifesto-detail">
               Creando experiencias únicas desde lo más profundo de la Patagonia
               Chilena para el mundo entero.
             </p>
@@ -94,19 +142,27 @@
       <div class="marquee-wrap strategic-marquee" aria-hidden="true">
         <div class="marquee-track">
           <div class="marquee-block">
-            <span>Creatividad</span><span class="dot">·</span>
-            <span>Eventos</span><span class="dot">·</span> <span>MICE</span
-            ><span class="dot">·</span> <span>Branding</span
-            ><span class="dot">·</span> <span>Patagonia</span
-            ><span class="dot">·</span> <span>Soluciones</span
+            <span data-i18n="mq-creativity">Creatividad</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-events">Eventos</span><span class="dot">·</span>
+            <span data-i18n="mq-mice">MICE</span><span class="dot">·</span>
+            <span data-i18n="mq-branding">Branding</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-patagonia">Patagonia</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-solutions">Soluciones</span
             ><span class="dot">·</span>
           </div>
           <div class="marquee-block" aria-hidden="true">
-            <span>Creatividad</span><span class="dot">·</span>
-            <span>Eventos</span><span class="dot">·</span> <span>MICE</span
-            ><span class="dot">·</span> <span>Branding</span
-            ><span class="dot">·</span> <span>Patagonia</span
-            ><span class="dot">·</span> <span>Soluciones</span
+            <span data-i18n="mq-creativity">Creatividad</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-events">Eventos</span><span class="dot">·</span>
+            <span data-i18n="mq-mice">MICE</span><span class="dot">·</span>
+            <span data-i18n="mq-branding">Branding</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-patagonia">Patagonia</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-solutions">Soluciones</span
             ><span class="dot">·</span>
           </div>
         </div>
@@ -117,8 +173,10 @@
         <div class="services-dots-pattern"></div>
         <div class="container">
           <div class="section-header content-contained">
-            <span class="tag">Ecosistema Gestoo</span>
-            <h2 class="section-title">Nuestras <span>soluciones.</span></h2>
+            <span class="tag" data-i18n="services-tag">Ecosistema Gestoo</span>
+            <h2 class="section-title" data-i18n="services-title">
+              Nuestras <span>soluciones.</span>
+            </h2>
           </div>
         </div>
 
@@ -130,8 +188,8 @@
           >
             <div class="service-content">
               <span class="service-num">01</span>
-              <h3>Consultoría de Marca</h3>
-              <p>
+              <h3 data-i18n="service-1-title">Consultoría de Marca</h3>
+              <p data-i18n="service-1-desc">
                 Estrategia de identidad corporativa y narrativa de marca para el
                 sector B2B.
               </p>
@@ -144,8 +202,8 @@
           >
             <div class="service-content">
               <span class="service-num">02</span>
-              <h3>Turismo MICE</h3>
-              <p>
+              <h3 data-i18n="service-2-title">Turismo MICE</h3>
+              <p data-i18n="service-2-desc">
                 Planificación integral y logística de congresos, incentivos y
                 convenciones en Patagonia.
               </p>
@@ -160,8 +218,8 @@
           >
             <div class="service-content">
               <span class="service-num">03</span>
-              <h3>Producción de Impacto</h3>
-              <p>
+              <h3 data-i18n="service-3-title">Producción de Impacto</h3>
+              <p data-i18n="service-3-desc">
                 Ingeniería técnica audiovisual avanzada para eventos
                 corporativos y masivos.
               </p>
@@ -174,8 +232,8 @@
           >
             <div class="service-content">
               <span class="service-num">04</span>
-              <h3>Alquiler de Equipos</h3>
-              <p>
+              <h3 data-i18n="service-4-title">Alquiler de Equipos</h3>
+              <p data-i18n="service-4-desc">
                 Soporte de infraestructura mediante renting de audio, pantallas
                 LED y mobiliario móvil.
               </p>
@@ -279,8 +337,10 @@
       <section class="works-section" id="works">
         <div class="container">
           <div class="section-header content-contained">
-            <span class="tag">Selection</span>
-            <h2 class="section-title">Casos de <em>éxito.</em></h2>
+            <span class="tag" data-i18n="works-tag">Selection</span>
+            <h2 class="section-title" data-i18n="works-title">
+              Casos de <em>éxito.</em>
+            </h2>
           </div>
         </div>
 
@@ -290,9 +350,11 @@
               <video src="img/test.mp4" autoplay muted loop playsinline></video>
             </div>
             <div class="work-overlay">
-              <span class="work-cat">B2B Strategy</span>
-              <h3>Patagonia Summit</h3>
-              <p>Consultoría integral y producción de alta gama.</p>
+              <span class="work-cat" data-i18n="work-1-cat">B2B Strategy</span>
+              <h3 data-i18n="work-1-title">Patagonia Summit</h3>
+              <p data-i18n="work-1-desc">
+                Consultoría integral y producción de alta gama.
+              </p>
             </div>
           </article>
           <article class="work-card">
@@ -306,9 +368,13 @@
               ></video>
             </div>
             <div class="work-overlay">
-              <span class="work-cat">Brand Experience</span>
-              <h3>Gala Corporativa</h3>
-              <p>Diseño de marca y producción técnica sensorial.</p>
+              <span class="work-cat" data-i18n="work-2-cat"
+                >Brand Experience</span
+              >
+              <h3 data-i18n="work-2-title">Gala Corporativa</h3>
+              <p data-i18n="work-2-desc">
+                Diseño de marca y producción técnica sensorial.
+              </p>
             </div>
           </article>
           <article class="work-card">
@@ -316,9 +382,13 @@
               <img src="img/work-3.jpeg" alt="Show" />
             </div>
             <div class="work-overlay">
-              <span class="work-cat">MICE & Tourism</span>
-              <h3>Incentivo Regional</h3>
-              <p>Logística de lujo y operación técnica en terreno.</p>
+              <span class="work-cat" data-i18n="work-3-cat"
+                >MICE & Tourism</span
+              >
+              <h3 data-i18n="work-3-title">Incentivo Regional</h3>
+              <p data-i18n="work-3-desc">
+                Logística de lujo y operación técnica en terreno.
+              </p>
             </div>
           </article>
           <article class="work-card">
@@ -326,9 +396,13 @@
               <img src="img/work-4.jpeg" alt="Lanzamiento" />
             </div>
             <div class="work-overlay">
-              <span class="work-cat">Equipment Rental</span>
-              <h3>Launch Interactive</h3>
-              <p>Renting de tecnología interactiva y pantallas LED.</p>
+              <span class="work-cat" data-i18n="work-4-cat"
+                >Equipment Rental</span
+              >
+              <h3 data-i18n="work-4-title">Launch Interactive</h3>
+              <p data-i18n="work-4-desc">
+                Renting de tecnología interactiva y pantallas LED.
+              </p>
             </div>
           </article>
         </div>
@@ -338,18 +412,28 @@
       <div class="marquee-wrap strategic-marquee highlight" aria-hidden="true">
         <div class="marquee-track">
           <div class="marquee-block">
-            <span>Branding</span><span class="dot">·</span>
-            <span>Logística</span><span class="dot">·</span>
-            <span>Producción</span><span class="dot">·</span>
-            <span>Creatividad</span><span class="dot">·</span>
-            <span>Experiencia</span><span class="dot">·</span>
+            <span data-i18n="mq-branding">Branding</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-logistics">Logística</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-production">Producción</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-creativity">Creatividad</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-experience">Experiencia</span
+            ><span class="dot">·</span>
           </div>
           <div class="marquee-block" aria-hidden="true">
-            <span>Branding</span><span class="dot">·</span>
-            <span>Logística</span><span class="dot">·</span>
-            <span>Producción</span><span class="dot">·</span>
-            <span>Creatividad</span><span class="dot">·</span>
-            <span>Experiencia</span><span class="dot">·</span>
+            <span data-i18n="mq-branding">Branding</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-logistics">Logística</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-production">Producción</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-creativity">Creatividad</span
+            ><span class="dot">·</span>
+            <span data-i18n="mq-experience">Experiencia</span
+            ><span class="dot">·</span>
           </div>
         </div>
       </div>
@@ -360,8 +444,10 @@
           <!-- Layer 1: The Problem -->
           <div class="solver-layer layer-problem">
             <div class="container content-contained">
-              <span class="status-badge">El Problema</span>
-              <h2 class="solver-text">
+              <span class="status-badge" data-i18n="solver-problem-tag"
+                >El Problema</span
+              >
+              <h2 class="solver-text" data-i18n="solver-problem-text">
                 ¿NECESITAS PRODUCCIÓN Y LOGÍSTICA PARA TU PRÓXIMO PROYECTO?
               </h2>
             </div>
@@ -369,13 +455,20 @@
           <!-- Layer 2: The Solution -->
           <div class="solver-layer layer-solution">
             <div class="container content-contained">
-              <span class="status-badge white">La Solución</span>
-              <h2 class="solver-text">
+              <span class="status-badge white" data-i18n="solver-solution-tag"
+                >La Solución</span
+              >
+              <h2 class="solver-text" data-i18n="solver-solution-text">
                 TE AYUDAMOS A QUE CADA PROYECTO SEA UNA INVERSIÓN,<br />
                 NO UN GASTO.
               </h2>
               <div class="solver-actions">
-                <a href="#" class="btn-primary">COTIZA TU SOLUCIÓN</a>
+                <a
+                  href="pages/contact.html"
+                  class="btn-primary"
+                  data-i18n="solver-btn"
+                  >COTIZA TU SOLUCIÓN</a
+                >
               </div>
             </div>
           </div>
@@ -391,38 +484,55 @@
             <a href="index.html" class="footer-logo">
               <img src="img/logo.png" alt="Gestoo" />
             </a>
-            <p>
+            <p data-i18n="footer-desc">
               Potenciando negocios a través de experiencias creativas.<br />Punta
               Arenas, Chile.
             </p>
           </div>
-          <div class="footer-nav">
-            <h4>Agencia</h4>
-            <nav class="footer-links">
-              <a href="#about">Quiénes somos</a>
-              <a href="#services">Servicios</a>
-              <a href="#works">Proyectos</a>
-              <a href="#contact">Contacto</a>
-            </nav>
-          </div>
-          <div class="footer-specialties">
-            <h4>Especialidades</h4>
-            <nav class="footer-links">
-              <a href="#">Marketing B2B</a>
-              <a href="#">Producción MICE</a>
-              <a href="#">Alquiler de Equipos</a>
-            </nav>
-          </div>
-          <div class="footer-contact">
-            <h4>Contacto</h4>
-            <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
-            <p>Punta Arenas, Chile</p>
+
+          <div class="footer-nav-group">
+            <div class="footer-nav">
+              <h4 data-i18n="footer-agency">Agencia</h4>
+              <nav class="footer-links">
+                <a href="pages/about.html" data-i18n="nav-about">Quiénes somos</a>
+                <a href="pages/services.html" data-i18n="nav-services">Servicios</a>
+                <a href="pages/works.html" data-i18n="nav-works">Proyectos</a>
+                <a href="pages/contact.html" data-i18n="nav-contact">Contacto</a>
+              </nav>
+            </div>
+            <div class="footer-specialties">
+              <h4 data-i18n="footer-specialties">Especialidades</h4>
+              <nav class="footer-links">
+                <a href="#">Marketing B2B</a>
+                <a href="#">Producción MICE</a>
+                <a href="#">Alquiler de Equipos</a>
+              </nav>
+            </div>
+            <div class="footer-contact">
+              <h4 data-i18n="footer-contact">Contacto</h4>
+              <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
+              <p>Punta Arenas, Chile</p>
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
           <p>
             &copy; 2025 Gestoo Creative Agency. Todos los derechos reservados.
           </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="YouTube" class="social-link">
+              <img src="img/redes_sociales_icons/youtube.svg" alt="" />
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <img src="img/redes_sociales_icons/instagram.svg" alt="" />
+            </a>
+            <a href="#" aria-label="Facebook" class="social-link">
+              <img src="img/redes_sociales_icons/facebook.svg" alt="" />
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <img src="img/redes_sociales_icons/linkedin.svg" alt="" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -431,6 +541,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

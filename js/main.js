@@ -61,11 +61,54 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
+    const closeBtn = document.getElementById("mobileMenuClose");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        burger.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    }
+
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.remove("open");
         burger.classList.remove("active");
         document.body.style.overflow = "";
+      });
+    });
+  }
+
+  // ── Custom Cursor ──
+  const cursor = document.querySelector(".cursor");
+  const follower = document.querySelector(".cursor-follower");
+
+  if (cursor && follower) {
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.1,
+      });
+      gsap.to(follower, {
+        x: e.clientX - 16,
+        y: e.clientY - 16,
+        duration: 0.3,
+      });
+    });
+
+    // Hover effects for interactive elements
+    const interactives = document.querySelectorAll(
+      "a, button, .service-item, .work-card, .brand-logo",
+    );
+    interactives.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        gsap.to(cursor, { scale: 1.5, backgroundColor: "var(--white)" });
+        gsap.to(follower, { scale: 1.5, borderColor: "var(--white)" });
+      });
+      el.addEventListener("mouseleave", () => {
+        gsap.to(cursor, { scale: 1, backgroundColor: "var(--accent-2)" });
+        gsap.to(follower, { scale: 1, borderColor: "var(--accent-2)" });
       });
     });
   }
@@ -78,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titleSpans = title.querySelectorAll("span");
 
-    // Scroll-triggered text reveal (letters/words appearing)
+    // Scroll-triggered text reveal
     gsap.to(titleSpans, {
       opacity: 1,
       stagger: 0.1,
@@ -90,16 +133,20 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Ghost text parallax
-    gsap.to(".manifesto-ghost", {
-      xPercent: -20,
-      scrollTrigger: {
-        trigger: ".manifesto-premium",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
+    // Infinito parallax (Synced with Title Reveal)
+    gsap.fromTo(
+      ".manifesto-ghost-illustration",
+      { yPercent: 90 },
+      {
+        yPercent: -90,
+        scrollTrigger: {
+          trigger: title,
+          start: "top bottom", // Starts when title enters
+          end: "bottom top", // Ends when title leaves
+          scrub: 1,
+        },
       },
-    });
+    );
 
     // Floating images parallax
     gsap.to(".img-1", {
@@ -164,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
           end: "+=150%",
           scrub: true,
           pin: true,
+          anticipatePin: 0.5,
           invalidateOnRefresh: true,
         },
       },
@@ -180,4 +228,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ── Global Reveal Observer ──
+  const revealElements = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  // Refresh ScrollTrigger after everything is loaded
+  ScrollTrigger.refresh();
 });
