@@ -56,7 +56,11 @@
 .portfolio-info {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 21, 30, 0.9) 0%, transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(10, 21, 30, 0.9) 0%,
+    transparent 60%
+  );
   padding: 3rem;
   display: flex;
   flex-direction: column;
@@ -69,13 +73,6 @@
   opacity: 1;
 }
 
-.work-cat {
-  font-size: 0.75rem;
-  font-weight: var(--fw-bold);
-  color: var(--accent-2);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
 
 .portfolio-info h3 {
   font-size: 2rem;
@@ -98,6 +95,10 @@
   .portfolio-info {
     padding: 2rem;
     opacity: 1; /* Always visible on mobile */
-    background: linear-gradient(to top, rgba(10, 21, 30, 0.8) 0%, transparent 80%);
+    background: linear-gradient(
+      to top,
+      rgba(10, 21, 30, 0.8) 0%,
+      transparent 80%
+    );
   }
 }

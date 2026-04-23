@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/lenis.css">
   <link rel="stylesheet" href="../css/pages/inner.css">
+  <link rel="stylesheet" href="../css/pages/about.css">
+  <link rel="canonical" href="https://gestoo.cl/pages/about.html">
 </head>
 
 <body>
@@ -30,16 +32,28 @@
 
   <!-- ============ NAVBAR (Interior con Inicio) ============ -->
   <header id="navbar" class="navbar scrolled">
-    <div class="container nav-inner">
+    <div class="navbar-inner">
       <a href="../index.html" class="nav-logo">
         <img src="../img/logo.png" alt="Gestoo">
       </a>
       <nav class="nav-links">
-        <a href="../index.html">Inicio</a> <!-- Nuevo link de Inicio -->
-        <a href="about.html">Nosotros</a>
-        <a href="services.html">Servicios</a>
-        <a href="works.html">Proyectos</a>
-        <a href="contact.html" class="btn-nav">Hablemos</a>
+        <a href="../index.html" data-i18n="nav-home">Inicio</a>
+        <a href="about.html" data-i18n="nav-about">Nosotros</a>
+        <a href="services.html" data-i18n="nav-services">Servicios</a>
+        <a href="works.html" data-i18n="nav-works">Proyectos</a>
+        <a href="contact.html" class="btn-nav" data-i18n="nav-contact">Hablemos</a>
+        <div class="lang-switcher">
+          <button class="lang-btn" id="langBtn">
+            <span class="lang-code">ES</span>
+            <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="lang-dropdown">
+            <li><button data-lang="es">ES</button></li>
+            <li><button data-lang="en">EN</button></li>
+          </ul>
+        </div>
       </nav>
       <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -48,12 +62,20 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Cerrar menú">
+      <span></span><span></span>
+    </button>
     <nav>
-      <a href="../index.html">Inicio</a> <!-- Agregar aquí también -->
-      <a href="about.html">Nosotros</a>
-      <a href="services.html">Servicios</a>
-      <a href="works.html">Proyectos</a>
-      <a href="contact.html">Contacto</a>
+      <a href="../index.html" data-i18n="nav-home">Inicio</a> <!-- Agregar aquí también -->
+      <a href="about.html" data-i18n="nav-about">Nosotros</a>
+      <a href="services.html" data-i18n="nav-services">Servicios</a>
+      <a href="works.html" data-i18n="nav-works">Proyectos</a>
+      <a href="contact.html" data-i18n="nav-contact">Contacto</a>
+      <div class="mobile-lang">
+        <button data-lang="es">ESP</button>
+        <span>|</span>
+        <button data-lang="en">ENG</button>
+      </div>
     </nav>
   </div>
 
@@ -63,8 +85,8 @@
     <section class="page-hero">
       <div class="container page-hero-content">
         <div class="reveal">
-          <span class="tag">ADN Patagónico</span>
-          <h1 class="page-title">Transformamos visión en <br><span class="gradient-text">impacto real.</span></h1>
+          <span class="tag" data-i18n="about-hero-tag">ADN Patagónico</span>
+          <h1 class="page-title" data-i18n="about-hero-title">Transformamos visión en <br><span class="gradient-text">impacto real.</span></h1>
         </div>
       </div>
     </section>
@@ -74,14 +96,14 @@
       <div class="container">
         <div class="about-intro">
           <div class="about-intro-text reveal">
-            <h2>Una agencia creativa que diseña el futuro de los eventos en la Patagonia.</h2>
-            <p>Nacimos con la convicción de que un evento no es solo una reunión de personas: es una oportunidad para
+            <h2 data-i18n="about-intro-title">Una agencia creativa que diseña el futuro de los eventos en la Patagonia.</h2>
+            <p data-i18n="about-intro-p1">Nacimos con la convicción de que un evento no es solo una reunión de personas: es una oportunidad para
               crear algo memorable. Somos un equipo apasionado por los detalles, por la narrativa y por el impacto
               emocional.</p>
-            <p>Desde Punta Arenas llevamos nuestras experiencias a todo Chile, combinando la majestuosidad de la
+            <p data-i18n="about-intro-p2">Desde Punta Arenas llevamos nuestras experiencias a todo Chile, combinando la majestuosidad de la
               Patagonia con la creatividad de una agencia de clase mundial.</p>
             <br>
-            <a href="contact.html" class="btn-primary">Trabaja con nosotros</a>
+            <a href="contact.html" class="btn-primary" data-i18n="about-intro-btn">Trabaja con nosotros</a>
           </div>
           <div class="about-img-block reveal">
             <img src="../img/team.jpg" alt="Equipo Gestoo" onerror="this.style.display='none'">
@@ -96,10 +118,10 @@
         <div class="testimonial-inner reveal"
           style="max-width:800px; margin:0 auto; text-align:center; position:relative;">
           <blockquote>
-            "No organizamos eventos. <br>Diseñamos experiencias que transforman momentos en recuerdos que duran toda la
-            vida."
+            <p data-i18n="about-quote">No organizamos eventos. <br>Diseñamos experiencias que transforman momentos en recuerdos que duran toda la
+            vida.</p>
           </blockquote>
-          <cite><strong>El Equipo Gestoo</strong></cite>
+          <cite><strong data-i18n="about-quote-cite">El Equipo Gestoo</strong></cite>
         </div>
       </div>
     </section>
@@ -107,28 +129,28 @@
     <section class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="tag">Metodología</span>
-          <h2 class="section-title">Nuestros pilares<br><em>estratégicos.</em></h2>
+          <span class="tag" data-i18n="about-pilares-tag">Metodología</span>
+          <h2 class="section-title" data-i18n="about-pilares-title">Nuestros pilares<br><em>estratégicos.</em></h2>
         </div>
         <div class="values-grid">
           <!-- Pilar 1 -->
           <div class="value-card reveal">
             <div class="value-icon">01</div>
-            <h3>Pensamiento Estratégico</h3>
-            <p>No solo ejecutamos; analizamos tus objetivos de negocio para que cada evento y marca sea una inversión
+            <h3 data-i18n="about-pilar-1-title">Pensamiento Estratégico</h3>
+            <p data-i18n="about-pilar-1-desc">No solo ejecutamos; analizamos tus objetivos de negocio para que cada evento y marca sea una inversión
               medida.</p>
           </div>
           <!-- Pilar 2 -->
           <div class="value-card reveal">
             <div class="value-icon">02</div>
-            <h3>Ingeniería de Experiencias</h3>
-            <p>Combinamos logística compleja con tecnología audiovisual avanzada para crear momentos sin fricción.</p>
+            <h3 data-i18n="about-pilar-2-title">Ingeniería de Experiencias</h3>
+            <p data-i18n="about-pilar-2-desc">Combinamos logística compleja con tecnología audiovisual avanzada para crear momentos sin fricción.</p>
           </div>
           <!-- Pilar 3 -->
           <div class="value-card reveal">
             <div class="value-icon">03</div>
-            <h3>Ejecución Impecable</h3>
-            <p>Desde el primer boceto hasta el desmontaje, nuestra atención al detalle en la Patagonia es quirúrgica.
+            <h3 data-i18n="about-pilar-3-title">Ejecución Impecable</h3>
+            <p data-i18n="about-pilar-3-desc">Desde el primer boceto hasta el desmontaje, nuestra atención al detalle en la Patagonia es quirúrgica.
             </p>
           </div>
         </div>
@@ -137,8 +159,8 @@
         <section class="section team-section">
           <div class="container">
             <div class="section-header reveal">
-              <span class="tag">Capital Humano</span>
-              <h2 class="section-title">El equipo detrás de<br><em>la magia.</em></h2>
+              <span class="tag" data-i18n="about-team-tag">Capital Humano</span>
+              <h2 class="section-title" data-i18n="about-team-title">El equipo detrás de<br><em>la magia.</em></h2>
             </div>
 
             <div class="team-grid">
@@ -212,61 +234,85 @@
           <div class="container content-contained">
             <div class="solution-card reveal">
               <div class="solution-text">
-                <span class="tag">Problem Solvers</span>
-                <h2 class="cta-title">¿Listo para elevar tu <br> próximo <span class="gradient-text">desafío?</span>
+                <span class="tag" data-i18n="about-cta-tag">Problem Solvers</span>
+                <h2 class="cta-title" data-i18n="about-cta-title">¿Listo para elevar tu <br> próximo <span class="gradient-text">desafío?</span>
                 </h2>
-                <p>Desde la Patagonia para todo Chile, transformamos la complejidad en experiencias memorables y
+                <p data-i18n="about-cta-desc">Desde la Patagonia para todo Chile, transformamos la complejidad en experiencias memorables y
                   resultados medibles.</p>
-                <a href="contact.html" class="btn-primary">Cotiza tu solución ahora →</a>
+                <a href="contact.html" class="btn-primary" data-i18n="about-cta-btn">Cotiza tu solución ahora →</a>
               </div>
             </div>
           </div>
         </section>
+      </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="footer-logo">
+              <img src="../img/logo.png" alt="Gestoo" />
+            </a>
+            <p data-i18n="footer-desc">
+              Potenciando negocios a través de experiencias creativas.<br />Punta
+              Arenas, Chile.
+            </p>
+          </div>
 
-
-  </main>
-
-  <!-- ============ FOOTER (Sincronizado) ============ -->
-  <footer class="footer">
-    <div class="container content-contained">
-      <div class="footer-grid">
-        <div class="footer-brand footer-col">
-          <a href="../index.html" class="nav-logo">
-            <img src="../img/logo.png" alt="Gestoo" style="height:40px; filter:brightness(0) invert(1);">
-          </a>
-          <p>Potenciando negocios a través de experiencias creativas.<br>Punta Arenas, Chile.</p>
+          <div class="footer-nav-group">
+            <div class="footer-nav">
+              <h4 data-i18n="footer-agency">Agencia</h4>
+              <nav class="footer-links">
+                <a href="about.html" data-i18n="nav-about">Quiénes somos</a>
+                <a href="services.html" data-i18n="nav-services">Servicios</a>
+                <a href="works.html" data-i18n="nav-works">Proyectos</a>
+                <a href="contact.html" data-i18n="nav-contact">Contacto</a>
+              </nav>
+            </div>
+            <div class="footer-specialties">
+              <h4 data-i18n="footer-specialties">Especialidades</h4>
+              <nav class="footer-links">
+                <a href="#" data-i18n="footer-spec-1">Marketing B2B</a>
+                <a href="#" data-i18n="footer-spec-2">Producción MICE</a>
+                <a href="#" data-i18n="footer-spec-3">Alquiler de Equipos</a>
+              </nav>
+            </div>
+            <div class="footer-contact">
+              <h4 data-i18n="footer-contact">Contacto</h4>
+              <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
+              <p>Punta Arenas, Chile</p>
+            </div>
+          </div>
         </div>
-        <div class="footer-col">
-          <h4>Agencia</h4>
-          <a href="about.html">Quiénes somos</a>
-          <a href="services.html">Nuestros servicios</a>
-          <a href="works.html">Proyectos</a>
-          <a href="contact.html">Contacto</a>
-        </div>
-        <div class="footer-col">
-          <h4>Especialidades</h4>
-          <p>Marketing B2B</p>
-          <p>Producción MICE</p>
-          <p>Alquiler de Equipos</p>
-          <p>Consultoría de Marca</p>
-        </div>
-        <div class="footer-col">
-          <h4>Magallanes</h4>
-          <a href="mailto:contacto@gestoo.cl">contacto@gestoo.cl</a>
-          <p>Punta Arenas, Chile</p>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Gestoo Creative Agency. Todos los derechos reservados.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="YouTube" class="social-link">
+              <img src="../img/redes_sociales_icons/youtube.svg" alt="" />
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <img src="../img/redes_sociales_icons/instagram.svg" alt="" />
+            </a>
+            <a href="#" aria-label="Facebook" class="social-link">
+              <img src="../img/redes_sociales_icons/facebook.svg" alt="" />
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <img src="../img/redes_sociales_icons/linkedin.svg" alt="" />
+            </a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Gestoo Creative Agency.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="../js/translations.js"></script>
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 
 </html>
+

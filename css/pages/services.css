@@ -29,13 +29,6 @@
   transform: translateY(-10px);
 }
 
-.service-num {
-  font-size: 1rem;
-  font-weight: var(--fw-bold);
-  color: var(--accent-2);
-  margin-bottom: 2rem;
-  display: block;
-}
 
 .service-card h3 {
   font-size: 2.5rem;
